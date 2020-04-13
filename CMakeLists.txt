@@ -260,9 +260,9 @@ include(GNUInstallDirs)
 if(SNAPPY_INSTALL)
   install(TARGETS snappy
     EXPORT SnappyTargets
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
   )
   install(
     FILES
@@ -270,14 +270,14 @@ if(SNAPPY_INSTALL)
       "snappy-sinksource.h"
       "snappy.h"
       "${PROJECT_BINARY_DIR}/snappy-stubs-public.h"
-    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+    DESTINATION include/snappy
   )
 
   include(CMakePackageConfigHelpers)
   configure_package_config_file(
     "cmake/${PROJECT_NAME}Config.cmake.in"
     "${PROJECT_BINARY_DIR}/cmake/${PROJECT_NAME}Config.cmake"
-    INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+    INSTALL_DESTINATION "lib/cmake/${PROJECT_NAME}"
   )
   write_basic_package_version_file(
     "${PROJECT_BINARY_DIR}/cmake/${PROJECT_NAME}ConfigVersion.cmake"
@@ -286,12 +286,12 @@ if(SNAPPY_INSTALL)
   install(
     EXPORT SnappyTargets
     NAMESPACE Snappy::
-    DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+    DESTINATION "lib/cmake/${PROJECT_NAME}"
   )
   install(
     FILES
       "${PROJECT_BINARY_DIR}/cmake/${PROJECT_NAME}Config.cmake"
       "${PROJECT_BINARY_DIR}/cmake/${PROJECT_NAME}ConfigVersion.cmake"
-    DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+    DESTINATION "lib/cmake/${PROJECT_NAME}"
   )
 endif(SNAPPY_INSTALL)
