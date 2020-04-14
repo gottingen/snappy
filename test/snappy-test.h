@@ -34,7 +34,7 @@
 #include <iostream>
 #include <string>
 
-#include "snappy-stubs-internal.h"
+#include <snappy/snappy-stubs-internal.h>
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -55,27 +55,12 @@
 #include <windows.h>
 #endif
 
-#ifdef HAVE_GTEST
 
 #include <gtest/gtest.h>
 #undef TYPED_TEST
 #define TYPED_TEST TEST
 #define INIT_GTEST(argc, argv) ::testing::InitGoogleTest(argc, *argv)
 
-#else
-
-// Stubs for if the user doesn't have Google Test installed.
-
-#define TEST(test_case, test_subcase) \
-  void Test_ ## test_case ## _ ## test_subcase()
-#define INIT_GTEST(argc, argv)
-
-#define TYPED_TEST TEST
-#define EXPECT_EQ CHECK_EQ
-#define EXPECT_NE CHECK_NE
-#define EXPECT_FALSE(cond) CHECK(!(cond))
-
-#endif
 
 #ifdef HAVE_GFLAGS
 

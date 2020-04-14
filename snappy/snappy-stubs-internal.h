@@ -31,12 +31,8 @@
 #ifndef THIRD_PARTY_SNAPPY_OPENSOURCE_SNAPPY_STUBS_INTERNAL_H_
 #define THIRD_PARTY_SNAPPY_OPENSOURCE_SNAPPY_STUBS_INTERNAL_H_
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
+#include <snappy/config.h>
 #include <string>
-
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
@@ -65,7 +61,7 @@
 #define SNAPPY_ANNOTATE_MEMORY_IS_INITIALIZED(address, size) /* empty */
 #endif  // __has_feature(memory_sanitizer)
 
-#include "snappy-stubs-public.h"
+#include <snappy/snappy-stubs-public.h>
 
 #if defined(__x86_64__)
 

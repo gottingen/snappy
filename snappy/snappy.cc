@@ -26,9 +26,9 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#include "snappy.h"
-#include "snappy-internal.h"
-#include "snappy-sinksource.h"
+#include <snappy/snappy.h>
+#include <snappy/snappy-internal.h>
+#include <snappy/snappy-sinksource.h>
 
 #if !defined(SNAPPY_HAVE_SSSE3)
 // __SSSE3__ is defined by GCC and Clang. Visual Studio doesn't target SIMD

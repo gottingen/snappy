@@ -31,7 +31,7 @@
 #ifndef THIRD_PARTY_SNAPPY_SNAPPY_INTERNAL_H_
 #define THIRD_PARTY_SNAPPY_SNAPPY_INTERNAL_H_
 
-#include "snappy-stubs-internal.h"
+#include <snappy/snappy-stubs-internal.h>
 
 namespace snappy {
 namespace internal {

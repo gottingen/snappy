@@ -35,10 +35,10 @@
 #include <utility>
 #include <vector>
 
-#include "snappy.h"
-#include "snappy-internal.h"
+#include "snappy/snappy.h"
+#include "snappy/snappy-internal.h"
 #include "snappy-test.h"
-#include "snappy-sinksource.h"
+#include "snappy/snappy-sinksource.h"
 
 DEFINE_int32(start_len, -1,
              "Starting prefix size for testing (-1: just full file contents)");

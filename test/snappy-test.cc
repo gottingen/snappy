@@ -28,9 +28,7 @@
 //
 // Various stubs for the unit tests for the open-source version of Snappy.
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#include <snappy/config.h>
 
 #ifdef HAVE_WINDOWS_H
 // Needed to be able to use std::max without workarounds in the source code.
