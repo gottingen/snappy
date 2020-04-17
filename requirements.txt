@@ -1,2 +1,0 @@
-gottingen/googletest@dev
-gottingen/abel@dev
