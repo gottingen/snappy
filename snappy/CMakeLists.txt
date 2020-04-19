@@ -92,36 +92,21 @@ configure_file(
 FILE(GLOB SNAPPY_SRC "*.cc")
 
 
-add_library(snappy_static STATIC ${SNAPPY_SRC})
-add_library(snappy_shared SHARED ${SNAPPY_SRC})
-
-target_link_libraries(snappy_static pthread)
 if (APPLE)
     find_library(CoreFoundation CoreFoundation)
-    target_link_libraries(snappy_static ${CoreFoundation} pthread)
-    target_link_libraries(snappy_shared ${CoreFoundation} pthread)
+    carbin_cc_library(
+            NAME snappy
+            SRCS ${SNAPPY_SRC}
+            DEPS ${CoreFoundation} pthread
+    )
 elseif (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-    target_link_libraries(snappy_static pthread)
-    target_link_libraries(snappy_shared pthread rt)
+    carbin_cc_library(
+            NAME snappy
+            SRCS ${SNAPPY_SRC}
+            DEPS pthread rt
+    )
 endif ()
 
-set_target_properties(snappy_shared PROPERTIES
-        OUTPUT_NAME snappy
-        VERSION ${CMAKE_PROJECT_VERSION}
-        SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-        )
-
-set_target_properties(snappy_static PROPERTIES
-        OUTPUT_NAME snappy
-        VERSION ${CMAKE_PROJECT_VERSION}
-        SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-        )
-
-install(TARGETS snappy_static snappy_shared
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION lib
-        ARCHIVE DESTINATION lib
-        )
 
 file(GLOB SNAPPY_HEADER "*.h")
 install(FILES ${SNAPPY_HEADER}

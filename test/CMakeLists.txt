@@ -1,4 +1,16 @@
 
+find_package(GTest REQUIRED)
+message(STATUS "${GTEST_INCLUDE_DIRS}")
 
-add_executable(snappy_test snappy-test.cc snappy_unittest.cc)
-target_link_libraries(snappy_test snappy_static z gtest gtest_main)
+set(SNAPPY_DEPS "gtest"
+        "gtest_main"
+        "snappy::snappy")
+
+if (HAVE_LIBZ)
+    list(APPEND SNAPPY_DEPS "z")
+endif ()
+carbin_cc_test(
+        NAME snappy_unittest
+        SRCS snappy_unittest.cc snappy-test.cc
+        DEPS ${SNAPPY_DEPS}
+)

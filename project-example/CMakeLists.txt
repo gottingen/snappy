@@ -11,7 +11,7 @@ cmake_policy(SET CMP0057 NEW)
 cmake_policy(SET CMP0048 NEW)
 
 # TODO modify this for you project
-project(snappy CXX C)
+project(carbin-cmake CXX)
 # TODO modyify this for "-std=c++[x]"
 set(CMAKE_CXX_STANDARD 11)
 
