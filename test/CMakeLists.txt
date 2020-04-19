@@ -1,9 +1,9 @@
 
 find_package(GTest REQUIRED)
-message(STATUS "${GTEST_INCLUDE_DIRS}")
 
-set(SNAPPY_DEPS "gtest"
-        "gtest_main"
+set(SNAPPY_DEPS
+        "GTest::Main"
+        "GTest::GTest"
         "snappy::snappy")
 
 if (HAVE_LIBZ)
