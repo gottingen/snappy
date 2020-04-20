@@ -1,1 +1,2 @@
 gottingen/googletest@dev
+gottingen/abel@dev -DCMAKE_VERBOSE_MAKEFILE=ON
